@@ -29,9 +29,16 @@
 <h3 class="comments_title">
   <%= @link.comments.count %> Comments
 </h3>
-
+<% @favourites , @rest = [], [] %>
+<% @link.comments.each do |comment| %>
+  <%@favourites << comment if comment.favourited == true %>
+ <% @rest << comment if comment.favourited == false %>
+<% end %>
 <div id="comments">
-  <%= render :partial => @link.comments %>
+  <%= render :partial => @favourites%>
+</div>
+<div id="comments">
+  <%= render :partial => @rest %>
 </div>
 <%= simple_form_for [@link, Comment.new]  do |f| %>
   <div class="field">

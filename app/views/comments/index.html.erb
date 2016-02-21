@@ -13,7 +13,9 @@
   </thead>
 
   <tbody>
+    <%=@comments.sort! { |a,b| a.favourited <=> b.favourited } %>
     <% @comments.each do |comment| %>
+    <h2> false </h2>
       <tr>
         <td><%= comment.link_id %></td>
         <td><%= comment.body %></td>

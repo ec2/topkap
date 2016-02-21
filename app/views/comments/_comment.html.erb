@@ -9,10 +9,9 @@
 			<% if comment.user == current_user -%>
 				<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
 				<% if comment.favourited -%>
-				<h1>fuck u suraj</h1>
+					<h1>fuck u suraj</h1>
 				<% end %>
 				<%= link_to "Favourite", :controller => "comments", :action => "favourite", :method => :get, :id => comment, class: "btn btn-sm btn-default" %>
-
 			<% end %>
 		</div>
 	</div>

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  before_filter :find_comment, :only => [:upvote]
  
   def create
     @link = Link.find(params[:link_id])
@@ -33,6 +33,15 @@ class CommentsController < ApplicationController
     end
   end
 =end
+  def upvote
+    @comment.upvote_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @comment.downvote_by current_user
+    redirect_to :back
+  end
 
 
   # DELETE /comments/1

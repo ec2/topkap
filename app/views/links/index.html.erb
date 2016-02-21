@@ -1,4 +1,4 @@
-<% @links.each do |link| %>
+<% @links.reverse.each do |link| %>
   <div class="link row clearfix">
     <%= image_tag link.photo.url(:medium) %>
     <h2>

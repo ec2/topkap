@@ -27,7 +27,7 @@
 <% end %>
 
 <h3 class="comments_title">
-  <%= @link.comments.count %> Comments
+  <%= @link.comments.count %> Captions
 </h3>
 <% @favourites , @rest = [], [] %>
 <% @link.comments.each do |comment| %>
@@ -45,5 +45,5 @@
     <%= f.text_area :body, class: "form-control" %>
   </div>
   <br>
-  <%= f.submit "Add Comment", class: "btn btn-primary" %>
+  <%= f.submit "Add Caption", class: "btn btn-primary" %>
 <% end %>

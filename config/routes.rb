@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :comments
-  put '/comments/:id/action' => 'comments#upvote'
+  get '/comments/:id/action' => 'comments#favourite'
   devise_for :users
   resources :links do 
     member do

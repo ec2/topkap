@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     @link = Link.find(params[:link_id])
     @comment = @link.comments.new(comment_params)
     @comment.user = current_user
-
+    @comment.favourited = false
     respond_to do |format|
       if @comment.save
         format.html { redirect_to @link, notice: 'Comment was successfully created.' }
@@ -43,6 +43,18 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
+  def favourite
+    #new_val = !self.favourited
+    @comment = Comment.find(params[:id])
+    new_val = !@comment.favourited
+    if true
+      print "Apple"
+    else
+      print "fuck u"
+    end
+    @comment.update_attributes(:favourited => new_val)
+    redirect_to :back
+  end
 
   # DELETE /comments/1
   # DELETE /comments/1.json
@@ -63,6 +75,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:link_id, :body, :user_id)
+      params.require(:comment).permit(:link_id, :body, :user_id, :favourited )
     end
 end

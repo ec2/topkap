@@ -3,6 +3,6 @@ class Link < ActiveRecord::Base
 	belongs_to :user
 	has_many :comments
 
-	has_attached_file :photo, :styles => {:medium => "200x200"}
+	has_attached_file :photo, :styles => {:medium => "x500", :thumbnail => "100x100"}
 	validates_attachment_content_type :photo, content_type: /\Aimage\/.*\Z/
 end

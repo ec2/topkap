@@ -1,7 +1,10 @@
+<br>
 <div class="page-header">
   <h1><a href="<%= @link.url %>"><%= @link.title %></a><br> <small>Submitted by <%= @link.user.email %></small></h1>
 </div>
 <%= image_tag @link.photo.url %>
+<br>
+<br>
 <div class="btn-group">
   <%= link_to 'Visit URL', @link.url, class: "btn btn-primary" %>
 </div>
@@ -27,7 +30,7 @@
 <% end %>
 
 <h3 class="comments_title">
-  <%= @link.comments.count %> Captions
+<font color = "white">  <%= @link.comments.count %> Captions </font>
 </h3>
 <% @favourites , @rest = [], [] %>
 <% @link.comments.each do |comment| %>

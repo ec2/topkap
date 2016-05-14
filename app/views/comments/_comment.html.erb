@@ -1,18 +1,23 @@
 <%= div_for(comment) do %>
 	<div class="comments_wrapper clearfix">
 		<div class="pull-left">
-			<p class="lead"><%= comment.body %></p>
-			<p><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></p>
+			<p class="lead"><font color = "white"><%= comment.body %></font></p>
+			<p><font color = "white"><small>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></font></p>
 		</div>
 
 		<div class="btn-group pull-right">
 			<% if comment.user == current_user -%>
 				<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %>
-				<% if comment.favourited -%>
-					<h2>Favourite</h1>
-				<% end %>
-				<%= link_to "Favourite", :controller => "comments", :action => "favourite", :method => :get, :id => comment, class: "btn btn-sm btn-default" %>
 			<% end %>
+			<% if comment.favourited -%>
+					<font color = "white"><h3>favourited</h3></font>
+			<% end %>
+			<% if comment.link.user == current_user -%>
+				<%= link_to 'Favourite', :controller => "comments", :action => "favourite", :method => :get, :id => comment, class: "btn btn-sm btn-default"  %>
+			<% end %>
+
 		</div>
 	</div>
 <% end %>
+
+

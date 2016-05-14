@@ -7,13 +7,16 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<header class="navbar navbar-default" role="navigation">
+	<header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<div class="navbar-inner">
 			<div class="container">
-				<div id="logo" class="navbar-brand"><%= link_to "Raddit", root_path %></div>
+				<div id="logo" class="navbar-brand">
+					<img alt="Brand" style="max-width:100px; margin-top: -7px;" src="http://i.imgur.com/QS1ZqTW.png">
+				</div>
 				<nav class="collapse navbar-collapse navbar-ex1-collapse">
 					<% if user_signed_in? -%>
 					<ul class="nav navbar-nav navbar-right">
+						<li><%= link_to 'Home', root_url %></li>
 						<li><%= link_to 'Submit link', new_link_path %></li>
 						<li><%= link_to 'Account', edit_user_registration_path %></li>
 						<li><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></li>
